@@ -53,5 +53,5 @@ public class ClientDao extends Dao {
 		client.setId(rs.getInt("id"));
 		return client;
 	}
-
+	
 }

@@ -55,7 +55,7 @@ public abstract class Dao {
 	protected abstract DataType constructFromRs(ResultSet rs) throws SQLException;
 	
 	// All
-	public List<DataType> selectAll() {
+	public List<? extends DataType> selectAll() {
 		List<DataType> selected = new ArrayList<>();
 		try(Connection conn = DbUtil.getConn()) {
 			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + getTableName());
