@@ -17,46 +17,52 @@
   	<div class="container">
   		<h1>VehicleTest</h1>
   	</div>
-<!--     <div class="container"> -->
-<!--     	<form action="" method="post"> -->
-<!-- 	    	<div class="form-group"> -->
-<!-- 	    		<input class="form-control" type="text" name="firstName" placeholder="firstName"> -->
-<!-- 	    	</div> -->
-<!-- 	    	<div class="form-group"> -->
-<!-- 	    		<input class="form-control" type="text" name="lastName" placeholder="lastName"> -->
-<!-- 	    	</div> -->
-<!-- 	    	<div class="form-group"> -->
-<!-- 	    		<input class="form-control" type="email" name="email" placeholder="email"> -->
-<!-- 	    	</div> -->
-<!-- 	    	<div class="form-group"> -->
-<!-- 	    		<input class="form-control" type="text" name="phone" placeholder="phone"> -->
-<!-- 	    	</div> -->
-<!-- 	    	<div class="form-group"> -->
-<!-- 	    		<input class="form-control" type="number" name="id" placeholder="id"> -->
-<!-- 	    	</div> -->
-<!-- 	    	<div class="form-check form-check-inline"> -->
-<!-- 				<label class="form-check-label" for="defaultCheck1"> -->
-<!-- 					<input class="form-check-input" type="radio" name="action" value="select" checked="checked"> -->
-<!-- 					Select -->
-<!--  				</label> -->
-<!-- 			</div> -->
-<!-- 			<div class="form-check form-check-inline"> -->
-<!-- 				<label class="form-check-label" for="defaultCheck1"> -->
-<!-- 					<input class="form-check-input" type="radio" name="action" value="insert"> -->
-<!-- 					Insert/Update -->
-<!--  				</label> -->
-<!-- 			</div> -->
-<!-- 			<div class="form-check form-check-inline"> -->
-<!-- 				<label class="form-check-label" for="defaultCheck1"> -->
-<!-- 					<input class="form-check-input" type="radio" name="action" value="delete"> -->
-<!-- 					Delete -->
-<!--  				</label> -->
-<!-- 			</div> -->
-<!-- 	    	<div class="form-group"> -->
-<!-- 	    		<input class="btn btn-primary" type="submit" value="test"> -->
-<!--     		</div> -->
-<!--     	</form> -->
-<!--     </div> -->
+    <div class="container">
+    	<form action="" method="post">
+    		<div class="form-group">
+	    		<input class="form-control" type="number" name="id" placeholder="id">
+	    	</div>
+	    	<div class="form-group">
+	    		<input class="form-control" type="text" name="model" placeholder="model">
+	    	</div>
+	    	<div class="form-group">
+	    		<input class="form-control" type="number" name="yearOfProduction" placeholder="yearOfProduction">
+	    	</div>
+	    	<div class="form-group">
+	    		<input class="form-control" type="text" name="licenceNumber" placeholder="licenceNumber">
+	    	</div>
+	    	<div class="form-group">
+	    		<input class="form-control" type="date" name="nextInspectionDate" placeholder="nextInspectionDate">
+	    	</div>
+	    	<div class="form-group">
+	    		<input class="form-control" type="time" name="nextInspectionTime" placeholder="nextInspectionTime">
+	    	</div>
+	    	<div class="form-group">
+	    		<input class="form-control" type="number" name="ownerId" placeholder="ownerId">
+	    	</div>
+	    	<div class="form-check form-check-inline">
+				<label class="form-check-label" for="defaultCheck1">
+					<input class="form-check-input" type="radio" name="action" value="select" checked="checked">
+					Select
+ 				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<label class="form-check-label" for="defaultCheck1">
+					<input class="form-check-input" type="radio" name="action" value="insert">
+					Insert/Update
+ 				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<label class="form-check-label" for="defaultCheck1">
+					<input class="form-check-input" type="radio" name="action" value="delete">
+					Delete
+ 				</label>
+			</div>
+	    	<div class="form-group">
+	    		<input class="btn btn-primary" type="submit" value="test">
+    		</div>
+    	</form>
+    </div>
   	<div class="container">
 	    <table class="table">
 	    	<thead>
@@ -71,15 +77,18 @@
 	    		</tr>
 	    	</thead>
 	    	<tbody>
-<%-- 	    		<c:if test="${not empty byId}"> --%>
-<!-- 	    			<tr class="table-active"> -->
-<%-- 	    				<th scope="row">${byId.id}</th> --%>
-<%-- 	    				<td>${byId.firstName}</td> --%>
-<%-- 	    				<td>${byId.lastName}</td> --%>
-<%-- 	    				<td>${byId.email}</td> --%>
-<%-- 	    				<td>${byId.phone}</td> --%>
-<!-- 	    			</tr> -->
-<%-- 	    		</c:if> --%>
+	    		<c:if test="${not empty byId}">
+	    			<c:set var="owner" value="${byId.owner}" />
+	    			<tr class="table-active">
+	    				<th scope="row">${byId.id}</th>
+	    				<td>${byId.model}</td>
+	    				<td>${byId.yearOfProduction}</td>
+	    				<td>${byId.licenceNumber}</td>
+	    				<td>${byId.nextInspectionDate}</td>
+	    				<td>${owner.id}</td>
+	    				<td>${owner.lastName} ${owner.firstName}</td>
+	    			</tr>
+	    		</c:if>
 	    		<c:forEach items="${all}" var="vehicle">
 	    			<c:set var="owner" value="${vehicle.owner}" />
 	    			<tr>
