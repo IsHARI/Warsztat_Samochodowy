@@ -13,6 +13,20 @@ import pl.coderslab.model.client.Client;
 import pl.coderslab.model.client.ClientDao;
 
 public class VehicleDao extends Dao {
+	// Singleton
+	private static VehicleDao instance = null;
+	private VehicleDao() {
+		
+	}
+	
+	public static VehicleDao getInstance() {
+		if(instance == null) {
+			instance = new VehicleDao();
+		}
+		return instance;
+	}
+
+	// Abstract method implementations
 	@Override
 	protected String getTableName() {
 		return "vehicle";
