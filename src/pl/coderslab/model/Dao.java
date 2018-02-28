@@ -20,7 +20,7 @@ public abstract class Dao {
 			if(object.getId() == 0) {    // Insert new object into database
 				stmt = prepareStatementInsert(object, conn);
 				stmt.executeUpdate();
-				ResultSet rs = stmt.getResultSet();
+				ResultSet rs = stmt.getGeneratedKeys();
 				if(rs.next()) {
 					object.setId(rs.getInt(1));
 				}
@@ -39,10 +39,10 @@ public abstract class Dao {
 	protected abstract PreparedStatement prepareStatementUpdate(DataType object, Connection conn) throws SQLException;
 
 	// Delete
-	public void delete(DataType object) {
+	public void delete(int id) {
 		try(Connection conn = DbUtil.getConn()) {
 			PreparedStatement stmt = conn.prepareStatement("DELETE FROM " + getTableName() + " WHERE id=?");
-			stmt.setInt(1, object.getId());;
+			stmt.setInt(1, id);;
 			stmt.executeUpdate();
 			
 			stmt.close();
@@ -55,10 +55,10 @@ public abstract class Dao {
 	protected abstract DataType constructFromRs(ResultSet rs) throws SQLException;
 	
 	// All
-	public List<DataType> selectAll() {
+	public List<? extends DataType> selectAll() {
 		List<DataType> selected = new ArrayList<>();
 		try(Connection conn = DbUtil.getConn()) {
-			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + getTableName());
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + getTableName() + " ORDER BY id ASC");
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next()) {
