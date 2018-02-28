@@ -20,7 +20,7 @@ public abstract class Dao {
 			if(object.getId() == 0) {    // Insert new object into database
 				stmt = prepareStatementInsert(object, conn);
 				stmt.executeUpdate();
-				ResultSet rs = stmt.getResultSet();
+				ResultSet rs = stmt.getGeneratedKeys();
 				if(rs.next()) {
 					object.setId(rs.getInt(1));
 				}
@@ -58,7 +58,7 @@ public abstract class Dao {
 	public List<? extends DataType> selectAll() {
 		List<DataType> selected = new ArrayList<>();
 		try(Connection conn = DbUtil.getConn()) {
-			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + getTableName());
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + getTableName() + " ORDER BY id ASC");
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next()) {

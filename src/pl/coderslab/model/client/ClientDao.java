@@ -10,7 +10,20 @@ import pl.coderslab.model.Dao;
 import pl.coderslab.model.DataType;
 
 public class ClientDao extends Dao {
+	// Singleton
+	private static ClientDao instance = null;
+	private ClientDao() {
+		
+	}
+	
+	public static ClientDao getInstance() {
+		if(instance == null) {
+			instance = new ClientDao();
+		}
+		return instance;
+	}
 
+	// Abstract method implementations
 	@Override
 	protected String getTableName() {
 		return "client";
@@ -35,8 +48,7 @@ public class ClientDao extends Dao {
 		Client client = (Client) object;
 
 		PreparedStatement stmt = conn.prepareStatement(
-				"UPDATE client SET first_name=?, last_name=?, email=?, phone=? WHERE id=?)",
-				Statement.RETURN_GENERATED_KEYS);
+				"UPDATE client SET first_name=?, last_name=?, email=?, phone=? WHERE id=?)");
 		stmt.setString(1, client.getFirstName());
 		stmt.setString(2, client.getLastName());
 		stmt.setString(3, client.getEmail());

@@ -28,7 +28,7 @@ public class ClientTest extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ClientDao clientDao = new ClientDao();
+		ClientDao clientDao = ClientDao.getInstance();
 		@SuppressWarnings("unchecked")
 		List<Client> all = (List<Client>) clientDao.selectAll();
 		
@@ -41,7 +41,26 @@ public class ClientTest extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String action = request.getParameter("action");
+		
+		switch (action) {
+		case "select":
+			int id = Integer.parseInt(request.getParameter("id"));
+			request.setAttribute("byId", ClientDao.getInstance().selectById(id));
+			break;
+		case "insert":
+			String firstName = request.getParameter("firstName");
+			String lastName = request.getParameter("lastName");
+			String email = request.getParameter("email");
+			String phone = request.getParameter("phone");
+			
+			Client client = new Client(firstName, lastName, email, phone);
+			request.setAttribute("byId", client);
+			ClientDao.getInstance().save(client);
+		default:
+			break;
+		}
+		
 		doGet(request, response);
 	}
 
