@@ -1,24 +1,24 @@
 package pl.coderslab.model.vehicle;
 
-import java.time.LocalDate;
+import java.time.Instant;
 
 import pl.coderslab.model.DataType;
+import pl.coderslab.model.client.Client;
 
 public class Vehicle implements DataType {
 	private int id = 0;
 	private String model = "";
 	private int yearOfProduction = 0;
 	private String licenceNumber = "";
-	private LocalDate nextInspectionDate = LocalDate.now();
-	// TODO: Client
-	// private Client owner = new Client;
+	private Instant nextInspectionDate = Instant.now();
+	private Client owner = null;
 	
-	public Vehicle(String model, int yearOfProduction, String licenceNumber, LocalDate nextInspectionDate/*, Client owner*/) {
+	public Vehicle(String model, int yearOfProduction, String licenceNumber, Instant nextInspectionDate, Client owner) {
 		this.model = model;
 		this.yearOfProduction = yearOfProduction;
 		this.licenceNumber = licenceNumber;
 		this.nextInspectionDate = nextInspectionDate;
-		// this.owner = owner;
+		this.owner = owner;
 	}
 	public int getId() {
 		return id;
@@ -44,16 +44,16 @@ public class Vehicle implements DataType {
 	public void setLicenceNumber(String licenceNumber) {
 		this.licenceNumber = licenceNumber;
 	}
-	public LocalDate getNextInspectionDate() {
+	public Instant getNextInspectionDate() {
 		return nextInspectionDate;
 	}
-	public void setNextInspectionDate(LocalDate nextInspectionDate) {
+	public void setNextInspectionDate(Instant nextInspectionDate) {
 		this.nextInspectionDate = nextInspectionDate;
 	}
-//	public Client getOwner() {
-//		return owner;
-//	}
-//	public void setOwner(Client owner) {
-//		this.owner = owner;
-//	}
+	public Client getOwner() {
+		return owner;
+	}
+	public void setOwner(Client owner) {
+		this.owner = owner;
+	}
 }

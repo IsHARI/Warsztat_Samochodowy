@@ -1,16 +1,32 @@
 package pl.coderslab.model.vehicle;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 
 import pl.coderslab.model.Dao;
 import pl.coderslab.model.DataType;
+import pl.coderslab.model.client.Client;
+import pl.coderslab.model.client.ClientDao;
 
 public class VehicleDao extends Dao {
+	// Singleton
+	private static VehicleDao instance = null;
+	private VehicleDao() {
+		
+	}
+	
+	public static VehicleDao getInstance() {
+		if(instance == null) {
+			instance = new VehicleDao();
+		}
+		return instance;
+	}
+
+	// Abstract method implementations
 	@Override
 	protected String getTableName() {
 		return "vehicle";
@@ -25,9 +41,8 @@ public class VehicleDao extends Dao {
 		stmt.setString(1, vehicle.getModel());
 		stmt.setInt(2, vehicle.getYearOfProduction());
 		stmt.setString(3, vehicle.getLicenceNumber());
-		stmt.setDate(4, Date.valueOf(vehicle.getNextInspectionDate()));
-		// TODO Client
-		// stmt.setInt(5, vehicle.getOwner.getId);
+		stmt.setTimestamp(4, Timestamp.from(vehicle.getNextInspectionDate()));
+		stmt.setInt(5, vehicle.getOwner().getId());
 
 		return stmt;
 	}
@@ -36,12 +51,12 @@ public class VehicleDao extends Dao {
 	protected PreparedStatement prepareStatementUpdate(DataType object, Connection conn) throws SQLException {
 		Vehicle vehicle = (Vehicle) object;
 
-		PreparedStatement stmt = conn.prepareStatement("UPDATE vehicle SET ?  ?, ?, ?, ? WHERE id=?");
+		PreparedStatement stmt = conn.prepareStatement("UPDATE vehicle SET ?, ?, ?, ?, ? WHERE id=?");
 		stmt.setString(1, vehicle.getModel());
 		stmt.setInt(2, vehicle.getYearOfProduction());
 		stmt.setString(3, vehicle.getLicenceNumber());
-		stmt.setDate(4, Date.valueOf(vehicle.getNextInspectionDate()));
-		// stmt.setInt(5, vehicle.getOwner.getId);
+		stmt.setTimestamp(4, Timestamp.from(vehicle.getNextInspectionDate()));
+		stmt.setInt(5, vehicle.getOwner().getId());
 		stmt.setInt(6, vehicle.getId());
 
 		return stmt;
@@ -50,8 +65,8 @@ public class VehicleDao extends Dao {
 	@Override
 	protected DataType constructFromRs(ResultSet rs) throws SQLException {
 		Vehicle vehicle = new Vehicle(rs.getString("model"), rs.getInt("year_of_production"),
-				rs.getString("licence_number"), rs.getDate("next_inspection_date").toLocalDate()
-				/*, ClientDao.selectById(rs.getInt("client_id"))*/);
+				rs.getString("licence_number"), rs.getTimestamp("next_inspection_date").toInstant(),
+				(Client) ClientDao.getInstance().selectById(rs.getInt("client_id")));
 		vehicle.setId(rs.getInt("id"));
 
 		return vehicle;

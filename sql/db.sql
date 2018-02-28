@@ -17,7 +17,7 @@ CREATE TABLE vehicle(
 	model VARCHAR(255),
 	year_of_production INT,
 	licence_number VARCHAR(255),
-	next_inspection_date DATE,
+	next_inspection_date TIMESTAMP,
 	client_id INT,
 	PRIMARY KEY(id),
 	FOREIGN KEY(client_id)
