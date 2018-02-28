@@ -39,10 +39,10 @@ public abstract class Dao {
 	protected abstract PreparedStatement prepareStatementUpdate(DataType object, Connection conn) throws SQLException;
 
 	// Delete
-	public void delete(DataType object) {
+	public void delete(int id) {
 		try(Connection conn = DbUtil.getConn()) {
 			PreparedStatement stmt = conn.prepareStatement("DELETE FROM " + getTableName() + " WHERE id=?");
-			stmt.setInt(1, object.getId());;
+			stmt.setInt(1, id);;
 			stmt.executeUpdate();
 			
 			stmt.close();

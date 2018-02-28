@@ -43,7 +43,13 @@
 			<div class="form-check form-check-inline">
 				<label class="form-check-label" for="defaultCheck1">
 					<input class="form-check-input" type="radio" name="action" value="insert">
-					Insert
+					Insert/Update
+ 				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<label class="form-check-label" for="defaultCheck1">
+					<input class="form-check-input" type="radio" name="action" value="delete">
+					Delete
  				</label>
 			</div>
 	    	<div class="form-group">

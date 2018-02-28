@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.omg.PortableInterceptor.INACTIVE;
+
 /**
  * Servlet implementation class ClientTest
  */
@@ -42,10 +44,17 @@ public class ClientTest extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
+		String ids = request.getParameter("id");
+		int id;
+		try {
+			id = Integer.parseInt(ids);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			id = 0;
+		}
 		
 		switch (action) {
 		case "select":
-			int id = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("byId", ClientDao.getInstance().selectById(id));
 			break;
 		case "insert":
@@ -55,8 +64,16 @@ public class ClientTest extends HttpServlet {
 			String phone = request.getParameter("phone");
 			
 			Client client = new Client(firstName, lastName, email, phone);
+			if(id!=0) {
+				client.setId(id);
+			}
+			
 			request.setAttribute("byId", client);
 			ClientDao.getInstance().save(client);
+			break;
+		case "delete":
+			ClientDao.getInstance().delete(id);
+			break;
 		default:
 			break;
 		}

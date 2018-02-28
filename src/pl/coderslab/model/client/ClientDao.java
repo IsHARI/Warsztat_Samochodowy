@@ -48,7 +48,7 @@ public class ClientDao extends Dao {
 		Client client = (Client) object;
 
 		PreparedStatement stmt = conn.prepareStatement(
-				"UPDATE client SET first_name=?, last_name=?, email=?, phone=? WHERE id=?)");
+				"UPDATE client SET first_name=?, last_name=?, email=?, phone=? WHERE id=?");
 		stmt.setString(1, client.getFirstName());
 		stmt.setString(2, client.getLastName());
 		stmt.setString(3, client.getEmail());
