@@ -23,3 +23,14 @@ CREATE TABLE vehicle(
 	FOREIGN KEY(client_id)
 	REFERENCES client(id)
 );
+
+CREATE TABLE employee(
+	id INT AUTO_INCREMENT,
+	first_name VARCHAR(255),
+	last_name VARCHAR(255),
+	address VARCHAR(255),
+	phone VARCHAR(255),
+	note TEXT,
+	cost_per_hour NUMERIC(12,2),
+	PRIMARY KEY(id)
+);
