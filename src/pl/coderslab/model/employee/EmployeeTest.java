@@ -1,6 +1,7 @@
-package pl.coderslab.model.client;
+package pl.coderslab.model.employee;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,31 +11,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ClientTest
+ * Servlet implementation class EmployeeTest
  */
-@WebServlet("/ClientTest")
-public class ClientTest extends HttpServlet {
+@WebServlet("/EmployeeTest")
+public class EmployeeTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ClientTest() {
+    public EmployeeTest() {
         super();
-        // Auto-generated constructor stub
+        //  Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ClientDao clientDao = ClientDao.getInstance();
+		EmployeeDao employeeDao = EmployeeDao.getInstance();
 		@SuppressWarnings("unchecked")
-		List<Client> all = (List<Client>) clientDao.selectAll();
+		List<Employee> all = (List<Employee>) employeeDao.selectAll();
 		
 		request.setAttribute("all", all);
 		
-		getServletContext().getRequestDispatcher("/WEB-INF/view/test/ClientTest.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/WEB-INF/view/test/EmployeeTest.jsp").forward(request, response);
 	}
 
 	/**
@@ -53,24 +54,26 @@ public class ClientTest extends HttpServlet {
 		
 		switch (action) {
 		case "select":
-			request.setAttribute("byId", ClientDao.getInstance().selectById(id));
+			request.setAttribute("byId", EmployeeDao.getInstance().selectById(id));
 			break;
 		case "insert":
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
-			String email = request.getParameter("email");
+			String address = request.getParameter("address");
 			String phone = request.getParameter("phone");
+			String note = request.getParameter("note");
+			BigDecimal costPerHour = new BigDecimal(request.getParameter("costPerHour"));
 			
-			Client client = new Client(firstName, lastName, email, phone);
+			Employee employee = new Employee(firstName, lastName, address, phone, note, costPerHour);
 			if(id!=0) {
-				client.setId(id);
+				employee.setId(id);
 			}
 			
-			request.setAttribute("byId", client);
-			ClientDao.getInstance().save(client);
+			request.setAttribute("byId", employee);
+			EmployeeDao.getInstance().save(employee);
 			break;
 		case "delete":
-			ClientDao.getInstance().delete(id);
+			EmployeeDao.getInstance().delete(id);
 			break;
 		default:
 			break;

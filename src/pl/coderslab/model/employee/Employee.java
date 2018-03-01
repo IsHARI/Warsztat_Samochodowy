@@ -11,7 +11,7 @@ public class Employee implements DataType {
 	private String address = "";
 	private String phone = "";
 	private String note = "";
-	private BigDecimal costPerHour = new BigDecimal(0);
+	private BigDecimal costPerHour = new BigDecimal("0");
 	
 	public Employee(String firstName, String lastName, String address, String phone, String note,
 			BigDecimal costPerHour) {
