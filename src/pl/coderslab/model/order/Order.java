@@ -31,6 +31,8 @@ public class Order implements DataType {
 			Vehicle vehicle) {
 		this.takeInDate = takeInDate;
 		this.plannedRepairBeginDate = plannedRepairBeginDate;
+		this.repairBeginDate = plannedRepairBeginDate; // Placeholders until proper
+		this.repairEndDate = plannedRepairBeginDate;   // values can be assigned
 		this.employee = employee;
 		this.problemDescription = problemDescription;
 		this.vehicle = vehicle;
