@@ -96,11 +96,11 @@ public abstract class Dao {
 	}
 
 	// By a custom comparison
-	public List<? extends DataType> selectByString(String comparison) {
+	public List<? extends DataType> selectByString(String cols, String comparison) {
 		List<DataType> selected = new ArrayList<>();
 		try (Connection conn = DbUtil.getConn()) {
 			PreparedStatement stmt = conn
-					.prepareStatement("SELECT * FROM " + getTableName() + " WHERE " + comparison);
+					.prepareStatement("SELECT " + cols + " FROM " + getTableName() + " WHERE " + comparison);
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -113,5 +113,9 @@ public abstract class Dao {
 		}
 
 		return selected;
+	}
+	
+	public List<? extends DataType> selectByString(String comparison) {
+		return selectByString("*", comparison);
 	}
 }

@@ -1,11 +1,16 @@
 package pl.coderslab.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import pl.coderslab.model.order.Order;
+import pl.coderslab.model.order.OrderDao;
 
 /**
  * Servlet implementation class Index
@@ -19,21 +24,26 @@ public class Index extends HttpServlet {
      */
     public Index() {
         super();
-        // TODO Auto-generated constructor stub
+        // Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		getServletContext().getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);;
+		@SuppressWarnings("unchecked")
+		List<Order> orders = (List<Order>) OrderDao.getInstance().selectByString("status='IN_REPAIR' ORDER BY repair_begin_date");
+		
+		request.setAttribute("orders", orders);
+		
+		getServletContext().getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		doGet(request, response);
 	}
 
