@@ -6,7 +6,7 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNav">
-		<a class="nav-item nav-link">Pracownicy</a>
+		<a class="nav-item nav-link" href="employees">Pracownicy</a>
 		<a class="nav-item nav-link">Klienci</a>
 		<a class="nav-item nav-link">Zlecenia</a>
 		<a class="nav-item nav-link">Raporty</a>
