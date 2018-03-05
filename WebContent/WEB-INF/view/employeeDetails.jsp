@@ -28,7 +28,7 @@
 			<button class="btn" type="submit" name="id" value="${employee.id}">Usuń</button>
 		</form>
 			
-		<%@ include file="fragments/addModal.jsp" %>
+		<%@ include file="fragments/addEmployeeModal.jsp" %>
 			
 		<div class="row">
 			<div class="col">

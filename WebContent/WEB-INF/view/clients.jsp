@@ -15,30 +15,30 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
-<title>AutoWarsztat CRM — Pracownicy</title>
+<title>AutoWarsztat CRM — Klienci</title>
 </head>
 <body>
 	<%@ include file="fragments/header.jsp" %>
 	
-	<div class="container">
+	<div class="container">	
 		<button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Dodaj</button>
-		
-		<%@ include file="fragments/addEmployeeModal.jsp" %>
+			
+		<%@ include file="fragments/addClientModal.jsp" %>
 		
 		<table class="table table-responsive">
 			<thead>
 				<tr>
 					<th scope="col">Nazwisko i imię</th>
+					<th scope="col">Email</th>
 					<th scope="col">Telefon</th>
-					<th scope="col">Koszt roboczogodziny</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="employee" items="${employees}">
+				<c:forEach var="client" items="${clients}">
 					<tr>
-						<td><a href="employeeDetails?id=${employee.id}">${employee.lastName} ${employee.firstName}</a></td>
-						<td>${employee.phone}</td>
-						<td>${employee.costPerHour}</td>
+						<td><a href="clientDetails?id=${client.id}">${client.lastName} ${client.firstName}</a></td>
+						<td>${client.email}</td>
+						<td>${client.phone}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

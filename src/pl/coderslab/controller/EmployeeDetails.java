@@ -38,7 +38,7 @@ public class EmployeeDetails extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("id"));
 			Employee employee = (Employee) EmployeeDao.getInstance().selectById(id);
 			@SuppressWarnings("unchecked")
-			List<Order> orders = (List<Order>) OrderDao.getInstance().selectByString("status='IN_REPAIR' AND employee_id=" + id + " ORDER BY repair_begin_date");
+			List<Order> orders = (List<Order>) OrderDao.getInstance().selectByString("WHERE status='IN_REPAIR' AND employee_id=" + id + " ORDER BY repair_begin_date");
 			
 			request.setAttribute("employee", employee);
 			request.setAttribute("orders", orders);
