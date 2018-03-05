@@ -21,7 +21,10 @@
 	<%@ include file="fragments/header.jsp" %>
 	
 	<div class="container">
-		<button class="btn">Dodaj pracownika</button>
+		<button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Dodaj</button>
+		
+		<%@ include file="fragments/addModal.jsp" %>
+		
 		<table class="table table-responsive">
 			<thead>
 				<tr>

@@ -23,8 +23,13 @@
 	<div class="container">
 		<h1>${employee.lastName} ${employee.firstName}</h1>
 		
-		<button class="btn">Edytuj</button>
-		<button class="btn">Usuń</button>
+		<button class="btn"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Edytuj</button>
+		<form action="employeeDelete" method="post">
+			<button class="btn" type="submit" name="id" value="${employee.id}">Usuń</button>
+		</form>
+			
+		<%@ include file="fragments/addModal.jsp" %>
+			
 		<div class="row">
 			<div class="col">
 				<ul class="list-group">
@@ -37,13 +42,37 @@
 						${employee.address}
 					</li>
 					<li class="list-group-item">
+						<h5>Koszt godziny roboczej</h5>
+						${employee.costPerHour} zł
+					</li>
+					<li class="list-group-item">
 						<h5>Uwagi</h5>
 						${employee.note}
 					</li>
 				</ul>
 			</div>
 			<div class="col">
-				
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Rozpoczęcie naprawy</th>
+							<th scope="col">Pojazd</th>
+							<th scope="col">Koszt dla klienta</th>
+							<th scope="col">Koszt części</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="order" items="${orders}">
+							<c:set var="vehicle" value="${order.vehicle}" />
+							<tr>
+								<td>${order.repairBeginDate}</td>
+								<td>${vehicle.model}</td>
+								<td>${order.costForClient}</td>
+								<td>${order.costOfParts}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>

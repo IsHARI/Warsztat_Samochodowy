@@ -38,7 +38,7 @@
 					<c:set var="vehicle" value="${order.vehicle}" />
 					<tr>
 						<td>${order.repairBeginDate}</td>
-						<td>${employee.lastName} ${employee.firstName}</td>
+						<td><a href="employeeDetails?id=${employee.id}">${employee.lastName} ${employee.firstName}</a></td>
 						<td>${vehicle.model}</td>
 						<td>${order.costForClient}</td>
 						<td>${order.costOfParts}</td>

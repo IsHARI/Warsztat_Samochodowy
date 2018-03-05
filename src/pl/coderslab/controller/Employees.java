@@ -1,6 +1,7 @@
 package pl.coderslab.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -43,7 +44,16 @@ public class Employees extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//  Auto-generated method stub
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		String address = request.getParameter("address");
+		String phone = request.getParameter("phone");
+		String note = request.getParameter("note");
+		BigDecimal costPerHour = new BigDecimal(request.getParameter("costPerHour"));
+		
+		Employee employee = new Employee(firstName, lastName, address, phone, note, costPerHour);
+		EmployeeDao.getInstance().save(employee);
+		
 		doGet(request, response);
 	}
 
