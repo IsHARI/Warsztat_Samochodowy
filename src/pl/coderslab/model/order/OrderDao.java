@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.sql.Types;
 
 import pl.coderslab.model.Dao;
 import pl.coderslab.model.DataType;
@@ -95,6 +94,7 @@ public class OrderDao extends Dao {
 		order.setRepairEndDate(rs.getTimestamp("repair_end_date").toInstant());
 		order.setRepairDescription(rs.getString("repair_description"));
 		order.setStatus(Order.Status.valueOf(rs.getString("status")));
+		order.setCostForClient(rs.getBigDecimal("cost_for_client"));
 		order.setCostOfParts(rs.getBigDecimal("cost_of_parts"));
 		order.setCostPerHour(rs.getBigDecimal("cost_per_hour"));
 		
