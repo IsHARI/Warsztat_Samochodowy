@@ -14,6 +14,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+<link href="sticky-footer.css" rel="stylesheet">
 
 <title>AutoWarsztat CRM — Strona główna</title>
 </head>
@@ -21,6 +22,8 @@
 	<%@ include file="fragments/header.jsp" %>
 	
 	<div class="container">
+		<h1 class="m-4">Strona główna</h1>
+	
 		<table class="table table-responsive">
 			<thead>
 				<tr>
@@ -37,7 +40,7 @@
 					<c:set var="employee" value="${order.employee}" />
 					<c:set var="vehicle" value="${order.vehicle}" />
 					<tr>
-						<td>${order.repairBeginDate}</td>
+						<td><a href="orderDetails?id=${order.id}">${order.repairBeginDate}</a></td>
 						<td><a href="employeeDetails?id=${employee.id}">${employee.lastName} ${employee.firstName}</a></td>
 						<td>${vehicle.model}</td>
 						<td>${order.costForClient}</td>
