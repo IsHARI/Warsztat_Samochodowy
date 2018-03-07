@@ -16,36 +16,41 @@
 	crossorigin="anonymous">
 <link href="sticky-footer.css" rel="stylesheet">
 
-<title>AutoWarsztat CRM — Strona główna</title>
+<title>AutoWarsztat CRM — Klienci</title>
 </head>
 <body>
 	<%@ include file="fragments/header.jsp" %>
 	
-	<div class="container">
-		<h1 class="m-4">Strona główna</h1>
-	
+	<div class="container">	
+		<h1 class="m-4">Klienci</h1>
+		
+		<form action="" method="post">
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Szukaj" name="name" >
+				<div class="input-group-append">
+					<input class="form-control" type="submit" value="Szukaj">
+				</div>
+			</div>
+		</form>
+		
+		<button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Dodaj</button>
+		
+		<%@ include file="fragments/addClientModal.jsp" %>
+		
 		<table class="table table-responsive">
 			<thead>
 				<tr>
-					<th scope="col">Rozpoczęcie naprawy</th>
-					<th scope="col">Pracownik</th>
-					<th scope="col">Pojazd</th>
-					<th scope="col">Koszt dla klienta</th>
-					<th scope="col">Koszt części</th>
-					<th scope="col">Koszt roboczogodziny</th>
+					<th scope="col">Nazwisko i imię</th>
+					<th scope="col">Email</th>
+					<th scope="col">Telefon</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="order" items="${orders}">
-					<c:set var="employee" value="${order.employee}" />
-					<c:set var="vehicle" value="${order.vehicle}" />
+				<c:forEach var="client" items="${clients}">
 					<tr>
-						<td><a href="orderDetails?id=${order.id}">${order.repairBeginDate}</a></td>
-						<td><a href="employeeDetails?id=${employee.id}">${employee.lastName} ${employee.firstName}</a></td>
-						<td>${vehicle.model}</td>
-						<td>${order.costForClient}</td>
-						<td>${order.costOfParts}</td>
-						<td>${order.costPerHour}</td>
+						<td><a href="clientDetails?id=${client.id}">${client.lastName} ${client.firstName}</a></td>
+						<td>${client.email}</td>
+						<td>${client.phone}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

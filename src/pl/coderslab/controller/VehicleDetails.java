@@ -11,39 +11,48 @@ import javax.servlet.http.HttpServletResponse;
 
 import pl.coderslab.model.order.Order;
 import pl.coderslab.model.order.OrderDao;
+import pl.coderslab.model.vehicle.Vehicle;
+import pl.coderslab.model.vehicle.VehicleDao;
 
 /**
- * Servlet implementation class Index
+ * Servlet implementation class VehicleDetails
  */
-@WebServlet("/index")
-public class Index extends HttpServlet {
+@WebServlet("/vehicleDetails")
+public class VehicleDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Index() {
+    public VehicleDetails() {
         super();
-        // Auto-generated constructor stub
+        //  Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		@SuppressWarnings("unchecked")
-		List<Order> orders = (List<Order>) OrderDao.getInstance().selectByString("WHERE status='IN_REPAIR' ORDER BY repair_begin_date DESC");
-		
-		request.setAttribute("orders", orders);
-		
-		getServletContext().getRequestDispatcher("/WEB-INF/view/index.jsp").forward(request, response);
+		try {
+			int id = Integer.parseInt(request.getParameter("id"));
+			Vehicle vehicle = (Vehicle) VehicleDao.getInstance().selectById(id);
+			@SuppressWarnings("unchecked")
+			List<Order> orders = (List<Order>) OrderDao.getInstance().selectByString("WHERE vehicle_id=" + id + " ORDER BY repair_begin_date DESC");
+			
+			request.setAttribute("vehicle", vehicle);
+			request.setAttribute("orders", orders);
+			
+			getServletContext().getRequestDispatcher("/WEB-INF/view/vehicleDetails.jsp").forward(request, response);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Auto-generated method stub
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

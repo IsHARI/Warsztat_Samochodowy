@@ -100,7 +100,7 @@ public abstract class Dao {
 		List<DataType> selected = new ArrayList<>();
 		try (Connection conn = DbUtil.getConn()) {
 			PreparedStatement stmt = conn
-					.prepareStatement("SELECT " + cols + " FROM " + getTableName() + " WHERE " + comparison);
+					.prepareStatement("SELECT " + cols + " FROM " + getTableName() + " " + comparison);
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

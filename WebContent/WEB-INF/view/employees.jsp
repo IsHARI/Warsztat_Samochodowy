@@ -14,6 +14,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+<link href="sticky-footer.css" rel="stylesheet">
 
 <title>AutoWarsztat CRM — Pracownicy</title>
 </head>
@@ -23,7 +24,7 @@
 	<div class="container">
 		<button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Dodaj</button>
 		
-		<%@ include file="fragments/addModal.jsp" %>
+		<%@ include file="fragments/addEmployeeModal.jsp" %>
 		
 		<table class="table table-responsive">
 			<thead>

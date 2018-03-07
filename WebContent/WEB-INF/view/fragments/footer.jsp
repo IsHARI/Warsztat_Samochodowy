@@ -1,4 +1,5 @@
-<footer class="footer p-2 mt-2 border-top border-secondary">
+
+<footer class="footer border-top border-secondary">
 	<div class="container font-small text-muted">
 		© Maciej 'Ishari' Biazik 2018
 	</div>

@@ -14,6 +14,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+<link href="sticky-footer.css" rel="stylesheet">
 
 <title>AutoWarsztat CRM — ${employee.lastName} ${employee.firstName}</title>
 </head>
@@ -21,14 +22,14 @@
 	<%@ include file="fragments/header.jsp" %>
 	
 	<div class="container">
-		<h1>${employee.lastName} ${employee.firstName}</h1>
+		<h1 class="m-4">${employee.lastName} ${employee.firstName}</h1>
 		
-		<button class="btn"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Edytuj</button>
 		<form action="employeeDelete" method="post">
+			<button class="btn"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Edytuj</button>
 			<button class="btn" type="submit" name="id" value="${employee.id}">Usuń</button>
 		</form>
 			
-		<%@ include file="fragments/addModal.jsp" %>
+		<%@ include file="fragments/addEmployeeModal.jsp" %>
 			
 		<div class="row">
 			<div class="col">
@@ -51,8 +52,8 @@
 					</li>
 				</ul>
 			</div>
-			<div class="col">
-				<table class="table">
+			<div class="col">	
+				<table class="table table-responsive">
 					<thead>
 						<tr>
 							<th scope="col">Rozpoczęcie naprawy</th>
@@ -66,7 +67,7 @@
 							<c:set var="vehicle" value="${order.vehicle}" />
 							<tr>
 								<td>${order.repairBeginDate}</td>
-								<td>${vehicle.model}</td>
+								<td><a href="vehicleDetails?id=${vehicle.id}">${vehicle.model}</a></td>
 								<td>${order.costForClient}</td>
 								<td>${order.costOfParts}</td>
 							</tr>
