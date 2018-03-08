@@ -4,18 +4,20 @@
 			<form action="" method="post">
 			 	<div class="modal-body">
 			    	Przyjęcie do naprawy:
-			    	<div class="form-group">
-			    		<input class="form-control" type="date" name="takeInDay">
-			    	</div>
-			    	<div class="form-group">
-			    		<input class="form-control" type="time" name="takeInTime">
+			    	<div class="form-group form-row">
+			    		<div class="col">
+			    			<input class="form-control" type="date" name="takeInDay">
+			    		</div><div class="col">
+			    			<input class="form-control" type="time" name="takeInTime">
+			    		</div>
 			    	</div>
 			    	Planowane rozpoczęcie naprawy:
-			    	<div class="form-group">
-			    		<input class="form-control" type="date" name="plannedRepairBeginDay">
-			    	</div>
-			    	<div class="form-group">
-			    		<input class="form-control" type="time" name="plannedRepairBeginTime">
+			    	<div class="form-group form-row">
+			    		<div class="col">
+			    			<input class="form-control" type="date" name="plannedRepairBeginDay">
+			    		</div><div class="col">
+			    			<input class="form-control" type="time" name="plannedRepairBeginTime">
+			    		</div>
 			    	</div>
 			    	<div class="form-group">
 			    		<input class="form-control" type="number" name="employeeId" placeholder="Id pracownika">

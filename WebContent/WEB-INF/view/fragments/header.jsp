@@ -8,7 +8,7 @@
 	<div class="collapse navbar-collapse" id="navbarNav">
 		<a class="nav-item nav-link" href="./employees">Pracownicy</a>
 		<a class="nav-item nav-link" href="./clients">Klienci</a>
-		<a class="nav-item nav-link">Zlecenia</a>
+		<a class="nav-item nav-link" href="./orders">Zlecenia</a>
 		<a class="nav-item nav-link">Raporty</a>
 	</div>
 </nav>
