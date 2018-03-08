@@ -27,7 +27,7 @@ public class ClientDetails extends HttpServlet {
      */
     public ClientDetails() {
         super();
-        // TODO Auto-generated constructor stub
+        //  Auto-generated constructor stub
     }
 
 	/**

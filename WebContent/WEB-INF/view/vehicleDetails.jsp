@@ -29,7 +29,7 @@
 			<button class="btn" type="submit" name="id" value="${vehicle.id}">Usuń</button>
 		</form>
 			
-		<%@ include file="fragments/addClientModal.jsp" %>
+		<%@ include file="fragments/addVehicleModal.jsp" %>
 			
 		<div class="container">
 			<div class="row">

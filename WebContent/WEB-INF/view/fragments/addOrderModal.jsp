@@ -3,17 +3,25 @@
 		<div class="modal-content">
 			<form action="" method="post">
 			 	<div class="modal-body">
+			    	Przyjęcie do naprawy:
 			    	<div class="form-group">
-			    		<input class="form-control" type="text" name="firstName" placeholder="Imię">
+			    		<input class="form-control" type="date" name="takeInDay">
 			    	</div>
 			    	<div class="form-group">
-			    		<input class="form-control" type="text" name="lastName" placeholder="Nazwisko">
+			    		<input class="form-control" type="time" name="takeInTime">
+			    	</div>
+			    	Planowane rozpoczęcie naprawy:
+			    	<div class="form-group">
+			    		<input class="form-control" type="date" name="plannedRepairBeginDay">
 			    	</div>
 			    	<div class="form-group">
-			    		<input class="form-control" type="email" name="email" placeholder="Email">
+			    		<input class="form-control" type="time" name="plannedRepairBeginTime">
 			    	</div>
 			    	<div class="form-group">
-			    		<input class="form-control" type="text" name="phone" placeholder="Telefon">
+			    		<input class="form-control" type="number" name="employeeId" placeholder="Id pracownika">
+			    	</div>
+			    	<div class="form-group">
+			    		<textarea class="form-control" name="problemDescription" placeholder="Opis problemu"></textarea>
 			    	</div>
 			 	</div>
 		      	<div class="modal-footer">
