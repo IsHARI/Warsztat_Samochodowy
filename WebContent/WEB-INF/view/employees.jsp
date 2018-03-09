@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
@@ -14,7 +14,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-<link href="sticky-footer.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/sticky-footer.css" rel="stylesheet">
 
 <title>AutoWarsztat CRM — Pracownicy</title>
 </head>
@@ -22,6 +22,8 @@
 	<%@ include file="fragments/header.jsp" %>
 	
 	<div class="container">
+		<h1 class="m-4">Pracownicy</h1>
+
 		<button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Dodaj</button>
 		
 		<%@ include file="fragments/addEmployeeModal.jsp" %>

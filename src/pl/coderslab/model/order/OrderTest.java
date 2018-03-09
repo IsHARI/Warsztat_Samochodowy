@@ -40,8 +40,8 @@ public class OrderTest extends HttpServlet {
 		
 		request.setAttribute("all", all);
 		
-		getServletContext().getRequestDispatcher("/WEB-INF/view/test/OrderTest.jsp").forward(request, response);;
-	}
+		getServletContext().getRequestDispatcher("/WEB-INF/view/test/OrderTest.jsp").forward(request, response);
+    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

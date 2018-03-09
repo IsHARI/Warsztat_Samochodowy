@@ -1,7 +1,6 @@
 package pl.coderslab.controller;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import pl.coderslab.model.client.Client;
-import pl.coderslab.model.client.ClientDao;
 import pl.coderslab.model.employee.Employee;
 import pl.coderslab.model.employee.EmployeeDao;
 import pl.coderslab.model.order.Order;

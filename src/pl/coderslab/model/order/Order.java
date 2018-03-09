@@ -13,18 +13,18 @@ public class Order implements DataType {
 	}
 	
 	private int id = 0;
-	private Instant takeInDate = Instant.now();
-	private Instant plannedRepairBeginDate = Instant.now();
-	private Instant repairBeginDate = null;
-	private Instant repairEndDate = null;
-	private Employee employee = null;
-	private String problemDescription = "";
+	private Instant takeInDate;
+	private Instant plannedRepairBeginDate;
+	private Instant repairBeginDate;
+	private Instant repairEndDate;
+	private Employee employee;
+	private String problemDescription;
 	private String repairDescription = "";
 	private Status status = Status.TAKEN_IN;
-	private Vehicle vehicle = null;
+	private Vehicle vehicle;
 	private BigDecimal costForClient = new BigDecimal("0");
 	private BigDecimal costOfParts = new BigDecimal("0");
-	private BigDecimal costPerHour = new BigDecimal("0");
+	private BigDecimal costPerHour;
 	int workHours = 0;
 	
 	public Order(Instant takeInDate, Instant plannedRepairBeginDate, Employee employee, String problemDescription,

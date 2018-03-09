@@ -44,8 +44,7 @@ public abstract class Dao {
 		try (Connection conn = DbUtil.getConn()) {
 			PreparedStatement stmt = conn.prepareStatement("DELETE FROM " + getTableName() + " WHERE id=?");
 			stmt.setInt(1, id);
-			;
-			stmt.executeUpdate();
+            stmt.executeUpdate();
 
 			stmt.close();
 		} catch (SQLException e) {
@@ -96,11 +95,11 @@ public abstract class Dao {
 	}
 
 	// By a custom comparison
-	public List<? extends DataType> selectByString(String cols, String comparison) {
+	public List<? extends DataType> selectByString(String comparison) {
 		List<DataType> selected = new ArrayList<>();
 		try (Connection conn = DbUtil.getConn()) {
 			PreparedStatement stmt = conn
-					.prepareStatement("SELECT " + cols + " FROM " + getTableName() + " " + comparison);
+					.prepareStatement("SELECT * FROM " + getTableName() + " " + comparison);
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -113,9 +112,5 @@ public abstract class Dao {
 		}
 
 		return selected;
-	}
-	
-	public List<? extends DataType> selectByString(String comparison) {
-		return selectByString("*", comparison);
 	}
 }
