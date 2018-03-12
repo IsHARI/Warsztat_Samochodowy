@@ -65,7 +65,8 @@
 			<table class="table table-responsive">
 				<thead>
 					<tr>
-						<th scope="col">Rozpoczęcie naprawy</th>
+						<th scope="col">Rozpoczęcie naprawy<br>
+							/ Przyjęcie zamówienia</th>
 						<th scope="col">Opis problemu</th>
 						<th scope="col">Opis naprawy</th>
 					</tr>

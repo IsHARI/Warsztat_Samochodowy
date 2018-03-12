@@ -22,8 +22,8 @@ public class Order implements DataType {
 	private String repairDescription = "";
 	private Status status = Status.TAKEN_IN;
 	private Vehicle vehicle;
-	private BigDecimal costForClient = new BigDecimal("0");
-	private BigDecimal costOfParts = new BigDecimal("0");
+	private BigDecimal costForClient = null;
+	private BigDecimal costOfParts = null;
 	private BigDecimal costPerHour;
 	int workHours = 0;
 	
