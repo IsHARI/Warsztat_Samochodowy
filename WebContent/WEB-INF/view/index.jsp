@@ -42,7 +42,7 @@
 					<tr>
 						<td><a href="orderDetails?id=${order.id}">${order.repairBeginDate}</a></td>
 						<td><a href="employeeDetails?id=${employee.id}">${employee.lastName} ${employee.firstName}</a></td>
-						<td>${vehicle.model}</td>
+						<td><a href="vehicleDetails?id=${vehicle.id}">${vehicle.model}</a></td>
 						<td>${order.costForClient}</td>
 						<td>${order.costOfParts}</td>
 						<td>${order.costPerHour}</td>

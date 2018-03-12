@@ -46,7 +46,7 @@
             <tr>
                 <td><a href="orderDetails?id=${order.id}">${order.repairBeginDate}</a></td>
                 <td><a href="employeeDetails?id=${employee.id}">${employee.lastName} ${employee.firstName}</a></td>
-                <td>${vehicle.model}</td>
+                <td><a href="vehicleDetails?id=${vehicle.id}">${vehicle.model}</a></td>
                 <td>
                     <c:if test="${order.status=='TAKEN_IN'}">Przyjęte</c:if>
                     <c:if test="${order.status=='COSTS_APPROVED'}">Koszty zatwierdzone</c:if>

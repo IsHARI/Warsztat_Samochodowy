@@ -66,7 +66,7 @@
 						<c:forEach var="order" items="${orders}">
 							<c:set var="vehicle" value="${order.vehicle}" />
 							<tr>
-								<td>${order.repairBeginDate}</td>
+								<td><a href="orderDetails?id=${order.id}">${order.repairBeginDate}</a></td>
 								<td><a href="vehicleDetails?id=${vehicle.id}">${vehicle.model}</a></td>
 								<td>${order.costForClient}</td>
 								<td>${order.costOfParts}</td>

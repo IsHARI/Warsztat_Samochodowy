@@ -39,7 +39,7 @@
 				</div>
 				<div class="col">
 					<h5>Email</h5>
-					${client.email}
+					<a href="mailto:${client.email}">${client.email}</a>
 				</div>
 			</div>
 		</div>

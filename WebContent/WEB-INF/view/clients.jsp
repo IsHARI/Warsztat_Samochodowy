@@ -49,7 +49,7 @@
 				<c:forEach var="client" items="${clients}">
 					<tr>
 						<td><a href="clientDetails?id=${client.id}">${client.lastName} ${client.firstName}</a></td>
-						<td>${client.email}</td>
+						<td><a href="mailto:${client.email}">${client.email}</a></td>
 						<td>${client.phone}</td>
 					</tr>
 				</c:forEach>
