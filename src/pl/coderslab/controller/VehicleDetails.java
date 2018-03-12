@@ -42,9 +42,12 @@ public class VehicleDetails extends HttpServlet {
 			Vehicle vehicle = (Vehicle) VehicleDao.getInstance().selectById(id);
 			@SuppressWarnings("unchecked")
 			List<Order> orders = (List<Order>) OrderDao.getInstance().selectByString("WHERE vehicle_id=" + id + " ORDER BY repair_begin_date DESC");
-			
+			@SuppressWarnings("unchecked")
+            List<Employee> employees = (List<Employee>) EmployeeDao.getInstance().selectAll();
+
 			request.setAttribute("vehicle", vehicle);
 			request.setAttribute("orders", orders);
+			request.setAttribute("employees", employees);
 			
 			getServletContext().getRequestDispatcher("/WEB-INF/view/vehicleDetails.jsp").forward(request, response);
 		} catch (NumberFormatException e) {

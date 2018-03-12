@@ -20,7 +20,11 @@
 			    		</div>
 			    	</div>
 			    	<div class="form-group">
-			    		<input class="form-control" type="number" name="employeeId" placeholder="Id pracownika">
+			    		<select name="employeeId">
+							<c:forEach var="employee" items="${employees}">
+                                <option value="${employee.id}">${employee.firstName} ${employee.lastName}</option>
+                            </c:forEach>
+						</select>
 			    	</div>
 			    	<div class="form-group">
 			    		<textarea class="form-control" name="problemDescription" placeholder="Opis problemu"></textarea>
