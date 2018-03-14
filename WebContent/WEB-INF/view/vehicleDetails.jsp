@@ -140,7 +140,7 @@
                 <form action="" method="post">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Przyjęcie do naprawy:</label>
+                            <label>Przyjęcie do naprawy</label>
                             <div class="form-row">
                                 <div class="col">
                                     <input class="form-control" type="date" name="takeInDay">
@@ -151,7 +151,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Planowane rozpoczęcie naprawy:</label>
+                            <label>Planowane rozpoczęcie naprawy</label>
                             <div class="form-row">
                                 <div class="col">
                                     <input class="form-control" type="date" name="plannedRepairBeginDay">
