@@ -305,15 +305,23 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label>Pojazd</label>
+                        <select name="vehicleId" class="form-control">
+                            <c:forEach var="vehicle" items="${vehicles}">
+                                <option value="${vehicle.id}">${vehicle.model} (${vehicle.licenceNumber})</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Opis problemu</label>
                         <textarea class="form-control" name="problemDescription" rows="8"
-                                  placeholder="Opis problemu"></textarea>
+                                  placeholder="Opis problemu">${vehicle.problemDescription}</textarea>
                     </div>
                     <c:if test="${order.status=='DONE'}">
                         <div class="form-group">
                             <label>Opis naprawy</label>
                             <textarea class="form-control" name="repairDescription" rows="8"
-                                      placeholder="Opis naprawy"></textarea>
+                                      placeholder="Opis naprawy">${vehicle.repairDescription}</textarea>
                         </div>
                     </c:if>
                     <c:if test="${order.status!='TAKEN_IN'}">
@@ -359,9 +367,9 @@
                 <p>Czy na pewno chcesz anulować zlecenie?</p>
             </div>
             <div class="modal-footer">
-                <form action="" method="post">
+                <form action="/orderCancel" method="post">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
-                    <button type="submit" class="btn btn-danger">Zatwierdź</button>
+                    <button type="submit" class="btn btn-danger" name="id" value="${order.id}">Zatwierdź</button>
                 </form>
             </div>
         </div>

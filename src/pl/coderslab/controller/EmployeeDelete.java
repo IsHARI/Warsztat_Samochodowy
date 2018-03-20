@@ -27,8 +27,7 @@ public class EmployeeDelete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		//  Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("employees");
 	}
 
 	/**
@@ -42,7 +41,7 @@ public class EmployeeDelete extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect("employees");
+		doGet(request, response);
 	}
 
 }

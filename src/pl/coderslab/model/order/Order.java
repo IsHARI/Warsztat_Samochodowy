@@ -25,8 +25,8 @@ public class Order implements DataType {
 	private BigDecimal costForClient = null;
 	private BigDecimal costOfParts = null;
 	private BigDecimal costPerHour;
-	int workHours = 0;
-	
+	private int workHours = 0;
+
 	public Order(Instant takeInDate, Instant plannedRepairBeginDate, Employee employee, String problemDescription,
 			Vehicle vehicle) {
 		this.takeInDate = takeInDate;
