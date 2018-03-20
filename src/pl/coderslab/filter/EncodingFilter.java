@@ -44,7 +44,7 @@ public class EncodingFilter implements Filter {
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
-	public void init(FilterConfig fConfig) throws ServletException {
+	public void init(FilterConfig fConfig) {
 		// Auto-generated method stub
 	}
 

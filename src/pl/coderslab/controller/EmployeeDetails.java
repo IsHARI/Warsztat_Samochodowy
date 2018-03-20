@@ -27,7 +27,7 @@ public class EmployeeDetails extends HttpServlet {
      */
     public EmployeeDetails() {
         super();
-        // TODO Auto-generated constructor stub
+        //  Auto-generated constructor stub
     }
 
 	/**

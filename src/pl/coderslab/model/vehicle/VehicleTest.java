@@ -38,8 +38,8 @@ public class VehicleTest extends HttpServlet {
 		
 		request.setAttribute("all", all);
 		
-		getServletContext().getRequestDispatcher("/WEB-INF/view/test/VehicleTest.jsp").forward(request, response);;
-	}
+		getServletContext().getRequestDispatcher("/WEB-INF/view/test/VehicleTest.jsp").forward(request, response);
+    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

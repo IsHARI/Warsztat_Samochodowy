@@ -6,12 +6,12 @@ import pl.coderslab.model.DataType;
 
 public class Employee implements DataType {
 	private int id = 0;
-	private String firstName = "";
-	private String lastName = "";
-	private String address = "";
-	private String phone = "";
-	private String note = "";
-	private BigDecimal costPerHour = new BigDecimal("0");
+	private String firstName;
+	private String lastName;
+	private String address;
+	private String phone;
+	private String note;
+	private BigDecimal costPerHour;
 	
 	public Employee(String firstName, String lastName, String address, String phone, String note,
 			BigDecimal costPerHour) {

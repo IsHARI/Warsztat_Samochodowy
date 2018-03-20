@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
@@ -41,19 +41,19 @@
 	    		<input class="form-control" type="number" step=".01" name="costPerHour" placeholder="costPerHour">
 	    	</div>
 	    	<div class="form-check form-check-inline">
-				<label class="form-check-label" for="defaultCheck1">
+				<label class="form-check-label">
 					<input class="form-check-input" type="radio" name="action" value="select" checked="checked">
 					Select
  				</label>
 			</div>
 			<div class="form-check form-check-inline">
-				<label class="form-check-label" for="defaultCheck1">
+				<label class="form-check-label">
 					<input class="form-check-input" type="radio" name="action" value="insert">
 					Insert/Update
  				</label>
 			</div>
 			<div class="form-check form-check-inline">
-				<label class="form-check-label" for="defaultCheck1">
+				<label class="form-check-label">
 					<input class="form-check-input" type="radio" name="action" value="delete">
 					Delete
  				</label>

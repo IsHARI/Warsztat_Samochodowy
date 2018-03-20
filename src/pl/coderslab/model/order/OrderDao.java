@@ -53,7 +53,7 @@ public class OrderDao extends Dao {
 		stmt.setBigDecimal(10, order.getCostForClient());
 		stmt.setBigDecimal(11, order.getCostOfParts());
 		stmt.setBigDecimal(12, order.getCostPerHour());
-		stmt.setInt(13, order.workHours);
+		stmt.setInt(13, order.getWorkHours());
 
 		return stmt;
 	}
@@ -77,7 +77,7 @@ public class OrderDao extends Dao {
 		stmt.setBigDecimal(10, order.getCostForClient());
 		stmt.setBigDecimal(11, order.getCostOfParts());
 		stmt.setBigDecimal(12, order.getCostPerHour());
-		stmt.setInt(13, order.workHours);
+		stmt.setInt(13, order.getWorkHours());
 		stmt.setInt(14, order.getId());
 
 		return stmt;
@@ -97,6 +97,7 @@ public class OrderDao extends Dao {
 		order.setCostForClient(rs.getBigDecimal("cost_for_client"));
 		order.setCostOfParts(rs.getBigDecimal("cost_of_parts"));
 		order.setCostPerHour(rs.getBigDecimal("cost_per_hour"));
+		order.setWorkHours(rs.getInt("work_hours"));
 		
 		return order;
 	}

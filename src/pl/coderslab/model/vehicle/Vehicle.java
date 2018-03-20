@@ -7,11 +7,11 @@ import pl.coderslab.model.client.Client;
 
 public class Vehicle implements DataType {
 	private int id = 0;
-	private String model = "";
-	private int yearOfProduction = 0;
-	private String licenceNumber = "";
-	private Instant nextInspectionDate = Instant.now();
-	private Client owner = null;
+	private String model;
+	private int yearOfProduction;
+	private String licenceNumber;
+	private Instant nextInspectionDate;
+	private Client owner;
 	
 	public Vehicle(String model, int yearOfProduction, String licenceNumber, Instant nextInspectionDate, Client owner) {
 		this.model = model;

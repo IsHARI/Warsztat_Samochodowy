@@ -51,7 +51,7 @@ public class VehicleDao extends Dao {
 	protected PreparedStatement prepareStatementUpdate(DataType object, Connection conn) throws SQLException {
 		Vehicle vehicle = (Vehicle) object;
 
-		PreparedStatement stmt = conn.prepareStatement("UPDATE vehicle SET ?, ?, ?, ?, ? WHERE id=?");
+		PreparedStatement stmt = conn.prepareStatement("UPDATE vehicle SET model=?, year_of_production=?, licence_number=?, next_inspection_date=?, client_id=? WHERE id=?");
 		stmt.setString(1, vehicle.getModel());
 		stmt.setInt(2, vehicle.getYearOfProduction());
 		stmt.setString(3, vehicle.getLicenceNumber());
