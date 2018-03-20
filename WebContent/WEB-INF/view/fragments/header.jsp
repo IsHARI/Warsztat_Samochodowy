@@ -9,6 +9,6 @@
 		<a class="nav-item nav-link" href="employees">Pracownicy</a>
 		<a class="nav-item nav-link" href="clients">Klienci</a>
 		<a class="nav-item nav-link" href="orders">Zlecenia</a>
-		<a class="nav-item nav-link">Raporty</a>
+		<a class="nav-item nav-link" href="reports">Raporty</a>
 	</div>
 </nav>
