@@ -16,13 +16,13 @@
           crossorigin="anonymous">
     <link href="${pageContext.request.contextPath}/sticky-footer.css" rel="stylesheet">
 
-    <title>AutoWarsztat CRM — Raport: roboczogodziny</title>
+    <title>AutoWarsztat CRM — Raport: Roboczogodziny (${beginDate} – ${endDate})</title>
 </head>
 <body>
 <%@ include file="fragments/header.jsp" %>
 
 <div class="container">
-    <h1 class="m-4">Raport: roboczogodziny</h1>
+    <h1 class="m-4">Raport: Roboczogodziny<br>(${beginDate} – ${endDate})</h1>
 
     <button class="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Dodaj</button>
 

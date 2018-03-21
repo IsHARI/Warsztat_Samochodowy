@@ -40,10 +40,10 @@
         <div class="form-group">
             <div class="form-row">
                 <div class="col-auto">
-                    <button class="btn btn-primary" type="submit" name="form" value="workHours">Roboczogodziny</button>
+                    <button class="btn btn-primary" type="submit" name="type" value="workHours">Roboczogodziny</button>
                 </div>
                 <div class="col-auto">
-                    <button class="btn btn-primary" type="submit" name="form" value="gains">Zyski</button>
+                    <button class="btn btn-primary" type="submit" name="type" value="gains">Zyski</button>
                 </div>
             </div>
         </div>
